@@ -228,5 +228,18 @@ left:50%;
     infoArea.textContent = 'File name: ' + fileName;
   }
   </script>
+   
+  <script type="text/javascript">
+  $(document).ready(function() {       
+    $('#upload').bind('change', function() {
+        var a=(this.files[0].size);
+      
+        if(a > 1000000) {
+            alert('large file. Picture should be less than 1mb');
+            return false;
+        };
+    });
+});
+  </script>
 </body>
 </html> 
