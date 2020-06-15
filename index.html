@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+    <script src="bootstrap/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css">
+    <style>
+      #upload {
+    opacity: 0;
+  
+}
+
+#upload-label {
+   float: left;
+}
+.image-area{
+  border: 2px solid black;
+    content: 'Uploaded image result';
+    color: #fff;
+    height:190px;
+    width:150px;
+}
+
+.image-area img {
+    z-index: 2;
+    position: relative;
+}
+.con{
+width:400px;
+height: 600px;
+}
+.a{
+  float: right;
+}
+.b{
+  margin-bottom: 34px;
+}
+#s{
+
+position: absolute;
+top:83.7%;
+left:50%;
+}
+#t{
+  margin-bottom: 50%;
+  position: absolute;
+  top:72.5%;
+  left:65%;
+}
+#q{
+  color: red;
+  background-origin: padding-box;
+}
+    </style>
+</head>
+<body>
+
+
+<div class="bor">
+  <span style="font-size:30px;cursor:pointer;background-color: blueviolet;padding: 15px;float: left; padding-bottom:20px;padding-right:21px ;"><i class="fa fa-bars" id=""></i></span>
+  <div id="mySidenav" class="sidenav" >
+    <a href="#"><i class="fa fa-search"></i></a>
+    <a href="#"><i class="fa fa-home"></i></a>
+    <a href="#"><i class="fa fa-bar-chart"></i></a>
+    <a href="#"><i class="fa fa-users"></i></a>
+    <a href="#"><i class="fa fa-gear"></i></a>
+    
+  </div>
+<img src="company_logo.png" style="margin-left:60px;"/>
+<div class="media">
+  <div class="med">
+  <h5 style="margin-bottom: 1px; color: rgba(0, 0, 0, 0.384);">RENEE MCKELVEY</h5>
+  <p style="margin-top: 1px;font-size: small; color: rgba(0, 0, 0, 0.384);">ACCOUNT SETTINGS</p></div>
+  <i class="fa fa-user fa-2x mr-3 rounded-circle img-thumbnail shadow-sm" style="padding: 10px; margin-top: 10px;"></i>
+</div>
+</div>
+<div class="div1">
+  <h2 style="color: rgba(0, 0, 0, 0.384);">User List</h2>
+    <input class="input1" type="text" placeholder=" Search" aria-label="Search">
+</div>
+<div class="container">
+  <table class="table table-hover table-striped table-bordered" id="emp_table">
+      <tr>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Actions</th>
+      </tr>
+      <tr>
+        <td>Ada Lovelace</td>
+          <td>Admin</td>
+          <td><i class="fa fa-pencil-square-o"></i></td>
+      </tr>
+      <tr>
+        <td>Grace Hopper</td>
+          <td>Developer</td>
+          <td><i class="fa fa-pencil-square-o"></i></td>
+      </tr>
+      <tr>
+        <td>Margaret Hamilton</td>
+          <td>QA</td>
+          <td><i class="fa fa-pencil-square-o"></i></td>
+      </tr>
+      <tr>
+        <td>joan Clarke</td>
+          <td>Manager</td>
+          <td><i class="fa fa-pencil-square-o"></i></td>
+      </tr>
+  </table>
+  </div>
+<!--jquery for data adding from json-->
+<script>
+  $(document).ready(function(){
+    $.getJSON("data.json", function(data){
+      var emp_data = '';
+      $.each(data,function(key,value){
+        emp_data += '<tr>';
+        emp_data += '<td>'+value.Name+'</td>';
+        emp_data += '<td>'+value.Role+'</td>';
+        emp_data += '<td>'+value.Actions+'</td>';
+        emp_data += '</tr>'; 
+      }); 
+      $('#emp_table').append(emp_data);
+    });
+  });
+</script>
+<div class="container1">
+<form class="text-center border border-light p-5" action="#!">
+
+  <p class="h2" align="left" style="color: rgba(0, 0, 0, 0.384);">New User</p>
+  <hr/>
+  <div class="form-row mb-4">
+      <div class="col">
+          <!-- User name -->
+          <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Username">
+      </div>
+      <div class="col">
+          <!-- email -->
+          <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Email">
+      </div>
+  </div>
+
+  <div class="form-row mb-4">
+    <div class="col">
+        <!-- First name -->
+        <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
+    </div>
+    <div class="col">
+        <!-- Last name -->
+        <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
+    </div>
+  </div>
+
+<div class="form-row mb-4">
+  <div class="col">
+    <select class="custom-select">
+      <option selected>Role</option>
+      <option>Admin</option>
+      <option>Manager</option>
+      <option>QA</option>
+      <option>Developer</option>
+    </select>
+  </div>
+  <div class="col">
+</div>
+  </div>
+ 
+  <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="defaultRegisterFormNewsletter">
+    <label class="custom-control-label" for="defaultRegisterFormNewsletter"> Send email confirmation</label>
+</div>
+</form>
+ <div id="t">
+  <h2 class="h2" align="left" style="color: rgba(0, 0, 0, 0.384);">Profile Picture</h2><hr/></div>
+  <div id="s">
+  <div class="con">
+    <div class="a">
+  <div class="image-area "><img id="imageResult" src="image.png" alt="" class="img-fluid"></div>
+    </div>
+    <br>
+    <div class="b">
+          <div class="input-group">
+              <input id="upload" type="file" onchange="readURL(this);" class="form-control">
+              
+              <div class="input-group-append">
+                  <label for="upload" class="btn btn-light"><small class="text-uppercase font-weight-bold text-muted">Select Image</small></label>
+              </div>
+          </div>
+      </div>    
+      
+  <hr id="q"/>
+  </div>
+ 
+</div>
+<hr/>
+<button class="btn" style="background-color: blueviolet;margin-left: 180px; padding-left: 45px;padding-right: 45px;">Add user</button>
+<button class="btn" style="background-color: rgb(221, 221, 221);margin-left: 10px; padding-left: 50px; padding-right: 50px;">Cancel</button>
+
+  <script type="text/javascript">
+  function readURL(input) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+  
+          reader.onload = function (e) {
+              $('#imageResult')
+                  .attr('src', e.target.result);
+          };
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+  
+  $(function () {
+      $('#upload').on('change', function () {
+          readURL(input);
+      });
+  });
+  
+  var input = document.getElementById( 'upload' );
+  var infoArea = document.getElementById( 'upload-label' );
+  
+  input.addEventListener( 'change', showFileName );
+  function showFileName( event ) {
+    var input = event.srcElement;
+    var fileName = input.files[0].name;
+    infoArea.textContent = 'File name: ' + fileName;
+  }
+  </script>
+</body>
+</html> 

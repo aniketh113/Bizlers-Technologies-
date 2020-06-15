@@ -1,0 +1,24 @@
+[
+    {
+        "name" : "Ada Lovelace",
+        "role" : "Admin",
+        "actions" : " "
+    },
+
+    {
+        "name" : "Grace Hopper",
+        "role" : "Developer",
+        "actions" : " "
+    },
+
+    {
+         "name" : "Margaret Hamilton",
+         "role" : "QA",
+         "actions" : " " 
+    },
+    {
+        "name" : "joan Clarke",
+        "role" : "Manager",
+        "actions" : " "
+    }
+]
